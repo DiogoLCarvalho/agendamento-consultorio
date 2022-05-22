@@ -26,12 +26,16 @@ const app = express();
 
 // Conectar com o html, rotas
 // Tem q arrumar o caminho das pastas
-
+//  Node + HTML = converte HTML para que o node se comunique
 // npm install ejs 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 var path = require('path');
 app.set('views', path.join(__dirname, '/view/'));
+
+// Pegar o CSS
+app.use(express.static(path.join(__dirname, '/view/')));
+app.use(express.static('view'));
 
 // npm install body-parser
 bodyParser = require('body-parser');

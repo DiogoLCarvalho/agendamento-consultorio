@@ -3,8 +3,8 @@ const MedicoRepository = require('../entities/medico');
 // const inserirMedico = await MedicoRepository.create(MedicoRepository);
 
 // Create medico - criando medico na tabela
-async function inserirMedico(){
-    return await MedicoRepository.create(MedicoRepository);
+async function inserirMedico(value){
+    return await MedicoRepository.create(value);
 }
 
 // Select Mysql - selecionando medico
@@ -17,8 +17,8 @@ async function buscarMedicosId(value){
 }
 
 // Update mysql
-async function salvarOuAtualizarMedico(MedicoRepository){
-    return await MedicoRepository.save();
+async function salvarOuAtualizarMedico(value){
+    return await MedicoRepository.upsert(value);
 }
 
 // delete myslq
