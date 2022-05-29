@@ -11,6 +11,7 @@ const app = express();
     const database = require('./model/services/bd');
 
     // Esta exportando para o mysql a entidade medico
+    const consulta = require('./model/entities/consulta');
     const medico = require('./model/entities/medico');
     const paciente = require('./model/entities/paciente');
 
@@ -50,3 +51,8 @@ consign().include('controller/routes', ).into(app);
 app.listen(8081,function () {
     console.log("O servidor está funcionando");
 });
+
+// Caminhos: 
+// http://localhost:8081/lista/medico
+// http://localhost:8081/lista/pacientes
+// http://localhost:8081/lista/consulta

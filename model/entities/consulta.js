@@ -5,27 +5,19 @@ const Sequelize = require('sequelize');
 // pega o bd
 const database = require('../services/bd');
 
-// Relacionamento com Consulta
-const Consulta = require('./consulta');
-
 // Criando a entidade
-const Medico = database.define('medico',{
+const Consulta = database.define('consulta', {
     // atributos
-    crm:{
+    id:{
         type: Sequelize.INTEGER,
         autoIncrement:true,
         allowNull:false,
         primaryKey:true
     },
-    nome:{
-        type: Sequelize.STRING,
+    data:{
+        type: Sequelize.DATE,
         allowNull: false
-    },
-    telefone: Sequelize.STRING
+    }
 });
 
-// Chave estrangeira
-Medico.hasMany(Consulta, {foreignKey: {name: 'id_Medico', allowNull: false}});
-
-// Exportando
-module.exports = Medico;
+module.exports = Consulta;
